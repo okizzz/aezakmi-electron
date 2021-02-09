@@ -1,0 +1,13 @@
+.popup-container .popup.filter {
+  .fingerprints-date {
+    display: flex;
+
+    .input {
+      margin-right: 12px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

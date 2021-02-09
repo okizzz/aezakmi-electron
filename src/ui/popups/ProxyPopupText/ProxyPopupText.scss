@@ -1,0 +1,26 @@
+.popup-container .popup.proxy-popup-text {
+  .select {
+    margin-bottom: 24px;
+  }
+
+  .input,
+  .input-dropdown {
+    margin-bottom: 16px;
+  }
+
+  .protocol {
+    display: flex;
+    align-self: end;
+    width: 76px;
+  }
+
+  .ip {
+    display: flex;
+    margin-bottom: 8px;
+
+    .input:last-of-type {
+      margin-left: 12px;
+      max-width: 62px;
+    }
+  }
+}
