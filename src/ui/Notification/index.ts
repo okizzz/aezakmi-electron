@@ -9,13 +9,16 @@ interface IProps {
 }
 
 // FIXME: Разобраться почему не работает
-const CreateNotification: any = () => {
-  notification.success({
-    message: "Notification Title",
-    description:
-      "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
+const CreateNotification = ({
+  message,
+  description,
+  type = "success",
+}: IProps): void => {
+  notification[type]({
+    message: message,
+    description: description,
     onClick: () => {
-      console.log("Notification Clicked!");
+      console.log("Notification Clicked!", type);
     },
   });
 };

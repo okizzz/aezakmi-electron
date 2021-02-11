@@ -27,8 +27,9 @@ import move from "../../../assets/icn_move.svg";
 
 import Checkbox from "../../Checkbox";
 import Button from "../../Button";
+import { IProfile } from "../../../interfaces/profiles/profile.interface";
 
-const Profile = (props: any) => {
+const Profile: React.FC<any> = ({ title, note, state }: IProfile) => {
   return (
     <ProfileComponent>
       <CheckboxContainer>
@@ -40,9 +41,10 @@ const Profile = (props: any) => {
             <Button text="Start" icon={play} />
             <Button variant="outlined" icon={timer} />
           </ButtonsList>
-          <ProfileTitle>{props.profile.title}</ProfileTitle>
+          <ProfileTitle>{title}</ProfileTitle>
         </Title>
-        <Note>{props.profile.note}</Note>
+        <Note>{note}</Note>
+        <Note>{state}</Note>
         <Proxy>
           <Button text="Check" />
           <ProxyStatus>

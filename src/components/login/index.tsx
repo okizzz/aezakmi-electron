@@ -33,9 +33,9 @@ const Login = () => {
           <Button text="Login" />
         </NavLink>
 
-        <RegisterButton onClick={() => CreateNotification()}>
+        {/* <RegisterButton onClick={() => CreateNotification()}>
           Register
-        </RegisterButton>
+        </RegisterButton> */}
       </LoginForm>
     </LoginContainer>
   );

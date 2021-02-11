@@ -22,7 +22,7 @@ const PopupContainer: React.FC<IProps> = (props) => {
         </div>
         <h2>{title}</h2>
 
-        {props.children}
+        {title}
 
         <Button onClick={handleButtonCLick} text="Create" />
       </div>

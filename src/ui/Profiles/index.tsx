@@ -13,15 +13,31 @@ import search from "../../assets/icn_search.svg";
 import options from "../../assets/icn_options.svg";
 import trash from "../../assets/icn_trash.svg";
 import plus from "../../assets/icn_plus.svg";
+import Popup from "../popups/index";
 
-import { Checkbox, Button } from "../";
+import { Checkbox, Button, CreateNotification } from "../";
 import Profile from "./Profile";
 
-interface IProps {
-  profiles: any[];
-}
+import { IProps } from "../../interfaces/profiles/props.interface";
+import { IProfile } from "../../interfaces/profiles/profile.interface";
 
-const Profiles = (props: IProps) => {
+const Profiles: React.FC<any> = ({
+  updateProfiles,
+  profiles,
+  title,
+}: IProps) => {
+  const [show, setIsShow] = React.useState<boolean>(false);
+  const handleSetShow = () => setIsShow(!show);
+  const handleUpdateProfiles = (): void => {
+    const profile = { title: "title", note: "note", state: "state" };
+    updateProfiles(profile);
+    handleSetShow();
+    CreateNotification({
+      message: "created",
+      description: "huy",
+      type: "warning",
+    });
+  };
   return (
     <ProfielsComponents>
       <TitleContainer>
@@ -29,7 +45,7 @@ const Profiles = (props: IProps) => {
           <Checkbox />
         </CheckBoxContainer>
         <Title>
-          <h2>Fingerprints</h2>
+          <h2>{title}</h2>
           <Note>Note</Note>
           <Note>Proxy</Note>
           <ButtonsList>
@@ -39,11 +55,19 @@ const Profiles = (props: IProps) => {
           </ButtonsList>
         </Title>
       </TitleContainer>
-      {props.profiles.map((profile: any) => {
+      {profiles.map((profile: IProfile) => {
         return <Profile profile={profile} />;
       })}
+      <Popup
+        handleClose={handleSetShow}
+        handleButtonCLick={handleUpdateProfiles}
+        title="Create Profile"
+        isShow={show}
+      >
+        <div>123</div>
+      </Popup>
       <AddContainer>
-        <Button variant="outlined" icon={plus} />
+        <Button onClick={handleSetShow} icon={plus} />
       </AddContainer>
     </ProfielsComponents>
   );
