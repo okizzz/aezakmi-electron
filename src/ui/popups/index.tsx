@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const PopupContainer: React.FC<IProps> = (props) => {
-  const { handleClose, handleButtonCLick, title, isShow } = props;
+  const { handleClose, handleButtonCLick, title, isShow }: IProps = props;
   if (!isShow) return null;
   return (
     <div className="popup-container">

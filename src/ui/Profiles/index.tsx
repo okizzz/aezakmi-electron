@@ -21,11 +21,7 @@ import Profile from "./Profile";
 import { IProps } from "../../interfaces/profiles/props.interface";
 import { IProfile } from "../../interfaces/profiles/profile.interface";
 
-const Profiles: React.FC<any> = ({
-  updateProfiles,
-  profiles,
-  title,
-}: IProps) => {
+const Profiles: any = ({ updateProfiles, profiles, title }: IProps) => {
   const [show, setIsShow] = React.useState<boolean>(false);
   const handleSetShow = () => setIsShow(!show);
   const handleUpdateProfiles = (): void => {
